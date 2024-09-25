@@ -45,20 +45,20 @@ def webServer(port=13331):
       # connection_response = b"Connection: close\r\n\r\n"
       #Note that a complete header must end with a blank line, creating the four-byte sequence "\r\n\r\n" Refer to https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/TCPSockets.html
 
-      outputdata = status_response + outputdata + server_response
+      response = status_response + outputdata + server_response
 
       #Fill in end
                
       for i in f: #for line in file
       #Fill in start - append your html file contents #Fill in end
-        outputdata += i
+        response += i
 
         
       #Send the content of the requested file to the client (don't forget the headers you created)!
       #Send everything as one send command, do not send one line/item at a time!
 
       # Fill in start
-      connectionSocket.send(outputdata)
+      connectionSocket.send(response)
 
       # Fill in end
         
@@ -69,10 +69,10 @@ def webServer(port=13331):
       # Remember the format you used in the try: block!
       #Fill in start
       status_response = b"HTTP/1.1 404 Not Found\r\n"
-      outputdata = b"Content-Type: text/html; charset=UTF-8\r\n"
+      content_type = b"Content-Type: text/html; charset=UTF-8\r\n"
       server_response = b"Server: Python Web Server\r\n\r\n"
-      outputdata = status_response + outputdata + server_response
-      connectionSocket.send(outputdata)
+      response = status_response + content_type + server_response
+      connectionSocket.send(response)
       #Fill in end
 
 
