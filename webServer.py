@@ -13,7 +13,7 @@ def webServer(port=13331):
   serverSocket.bind(("", port))
   
   #Fill in start
-  serverSocket.listen(1)
+  serverSocket.listen(3)
   print("The server is ready to receive")
   #Fill in end
 
@@ -58,7 +58,6 @@ def webServer(port=13331):
       #Send everything as one send command, do not send one line/item at a time!
 
       # Fill in start
-      print(outputdata.decode())
       connectionSocket.send(outputdata)
 
       # Fill in end
