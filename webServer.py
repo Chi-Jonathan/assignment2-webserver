@@ -38,14 +38,14 @@ def webServer(port=13331):
       status_response = b"HTTP/1.1 200 OK\r\n"
 
       #Content-Type is an example on how to send a header as bytes. There are more!
-      outputdata = b"HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=UTF-8\r\nServer: Python Web Server\r\n\r\n"
+      outputdata = b"Content-Type: text/html; charset=UTF-8\r\n"
 
       server_response = b"Server: Python Web Server\r\n\r\n"
 
       # connection_response = b"Connection: close\r\n\r\n"
       #Note that a complete header must end with a blank line, creating the four-byte sequence "\r\n\r\n" Refer to https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/TCPSockets.html
 
-      # outputdata = status_response + outputdata + server_response
+      outputdata = status_response + outputdata + server_response
 
       #Fill in end
                
